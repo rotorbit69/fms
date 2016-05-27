@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.Briefsapp')
 
 @section('htmlheader_title')
-	FDP - Flight Duty Period
+	Instructor Briefs
 @endsection
 
 
@@ -14,7 +14,7 @@
 
         <div class="col-sm-6"><!--Column left--></div>
 <div class="progress progress-s">
-                <div class="progress-bar progress-bar-info " role="progressbar" aria-valuetext="Step 2: Copying files... "  style="min-width: 30px; width: 30%">
+                <div class="progress-bar progress-bar-info " role="progressbar" aria-valuetext="Step 2: Copying files... "  style="min-width: 30px; width: 10%">
 					0000 - 0529
                   <span class="sr-only">60% Complete (warning)</span>
                 </div>
@@ -22,7 +22,7 @@
         <div class="col-sm-6"><!--Column right--></div>
  <div class="col-sm-6"><!--Column left--></div>
 <div class="progress progress-s">
-                <div class="progress-bar progress-bar-info " role="progressbar" aria-valuetext="Step 2: Copying files... "  style="min-width: 30px; width: 30%">
+                <div class="progress-bar progress-bar-info " role="progressbar" aria-valuetext="Step 2: Copying files... "  style="min-width: 30px; width: 10%">
 					0000 - 0529
                   <span class="sr-only">60% Complete (warning)</span>
                 </div>
@@ -30,7 +30,7 @@
     </div>
   
 			<div class="progress progress-s">
-                <div class="progress-bar progress-bar-info " role="progressbar" aria-valuetext="Step 2: Copying files... "  style="min-width: 30px; width: 30%">
+                <div class="progress-bar progress-bar-info " role="progressbar" aria-valuetext="Step 2: Copying files... "  style="min-width: 30px; width: 10%">
 					0000 - 0529
                   <span class="sr-only">60% Complete (warning)</span>
                 </div>

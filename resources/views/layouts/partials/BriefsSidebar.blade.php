@@ -36,8 +36,8 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="active"><a href="{{ url('home') }}"><i class='glyphicon glyphicon-home'></i> <span>Home</span></a></li>
 
-            <li><a href="/Briefs"><i class='fa fa-graduation-cap'></i> <span>Instructor Briefs</span></a></li>
-            <button class="btn btn-block btn-primary" data-toggle="control-sidebar">Toggle Right Sidebar</button>
+            <li><a href="/"><i class='fa fa-send-o'></i> <span>Flight and Duty</span></a></li>
+            <button class="btn btn-block btn-warning" data-toggle="control-sidebar">Toggle Right Sidebar</button>
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>Multilevel #1</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
