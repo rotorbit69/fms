@@ -19,3 +19,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Shift::class, function (Faker\Generator $faker) {
+    return [
+        'StartTime' => $faker->date,
+        'Duration' => $faker->numberBetween(500,750),
+        'user_id' => $faker->numberBetween(1,30)
+       
+    ];
+});

@@ -4,13 +4,21 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
+
+	protected $toTruncate = ['users' , 'shifts']; //* array of files to clear before seeding **/
+
     /**
      * Run the database seeds.
-     *
-     * @return void
      */
+   
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+    	foreach ($this->toTruncate as $table) {
+    		DB::table($table)->truncate();
+    	}
+
+		$this->call(UsersTableSeeder::class);
+        $this->call(ShiftsTableSeeder::class);
+
     }
 }
