@@ -8,9 +8,9 @@
 @section('main-content')
 	<div class="container spark-screen">
 
-		
-			
-		    
+		<?php  $grand_total = App\Flight::where('user_id' , 1 )->sum('flight_time') / 60; ?>
+
+	   
      
 	    </div>
 		<div class="row">
@@ -25,14 +25,10 @@
 					 		<strong>Flight Time Totals</strong>
 					 	    <button type="button" class="btn btn-default btn-xs" style="float:right;">Help</button>
 					 	    <div>
-					 	    	<div class="btn-group btn-group-xs">
-									<button type="button" class="btn btn-success btn-group-xs">
-									<strong>7</strong> hrs Available
-									</button>
-								</div>
+					 	    	
 								<div class="btn-group btn-group-xs">
 									<button type="button" class="btn btn-default btn-group-xs">
-									7Day Total: <strong>56.1</strong>
+									7Day Total: <strong><span style="color:red">56.1</span></strong>
 									</button>
 								</div>
 								<div class="btn-group btn-group-xs">
@@ -50,6 +46,11 @@
 									365Day Total: <strong>1211.5</strong>
 									</button>
 								</div>
+								<div class="btn-group btn-group-xs">
+									<button type="button" class="btn btn-default btn-group-xs">
+									Grand Total: <strong>{{ $grand_total }}</strong>
+									</button>
+								</div>
 							</div>
 					</div>
 						<div class="panel-body">
@@ -58,48 +59,15 @@
 
 										@foreach ($shifts as $shift)
 							
-							
-								
 										<div class="btn-group btn-group-xs">
-											<button type="button" class="btn bg-orange btn-group-xs"data-toggle="tooltip" title="
-											Shift date, Record lock indicator, and Appendix #" data-placement="top" >
-											{{ $shift-> date }}
-											A5
-											</button>
-											<!-- Flight Duty Period -->
-											<button type="button" class="btn btn-success btn-group-xs" data-toggle="modal" data-target="#myModal2">
-												{{ $shift->	duty_start_time }} -Duty[{{ $shift-> duty_finish_time - $shift-> duty_start_time }}]-
-												<i class="fa fa-car"></i>
-												<i class="fa fa-pie-chart"></i>
-												<i class="fa fa-gears"></i>
-												<i class="fa fa-plus-square"></i>
-												<i class="fa fa-plus"></i>
-												 {{ $shift-> duty_finish_time }}
 
-											</button>
+											@include('layouts.partials.buttons.date')
 											  
+											@include('layouts.partials.buttons.fdp')
 
+											@include('layouts.partials.buttons.odp')
 
-
-											<button type="button" class="btn bg-navy btn-group-xs" data-toggle="tooltip" title="
-											This is the Off Duty Period - You can modify it by clicking on it." data-placement="top" >
-											{{ $shift-> odp_start_time }}
-											-----ODP
-											<i class="fa fa-moon-o"></i>
-											<i class="fa fa-lock"></i>
-											<i class="fa fa-gears"></i>
-											<i class="fa fa-random"></i>
-											[{{$shift->odp_start_time - $shift-> odp_finish_time }}]
-											---
-											{{ $shift-> odp_finish_time }}
-											</button>
-
-								
-<!--<button type="button" class="btn btn-danger btn-xs"><i class="fa fa-home"></i> DayOff</button> -->
-							
-											<button type="button" class="btn btn-info btn-xs"><i class="fa fa-plane"></i> + 7.5</button>
-
-										
+											@include('layouts.partials.buttons.flight')
 											
 
 										</div>	

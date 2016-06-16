@@ -15,8 +15,8 @@ class Shift extends Model
     	return $this->belongsTo('App\User');
     }
 
-    public function appendix(){
-    	return $this->belongsTo('App\Appendix');
+    public function appendice(){
+    	return $this->belongsTo('App\Appendice');
     }
 
 

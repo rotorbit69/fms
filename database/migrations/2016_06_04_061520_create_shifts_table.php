@@ -15,7 +15,6 @@ class CreateShiftsTable extends Migration
         Schema::create('shifts', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
-            $table->string('appendix');
             $table->boolean('locked_flag')->default(0);
             $table->boolean('day_off_flag')->default(0);
 
@@ -39,7 +38,7 @@ class CreateShiftsTable extends Migration
              $table->timestamps();
             /** Foreign Keys **/
             $table->integer('user_id')->unsigned();
-            $table->integer('appendix_id')->unsigned();
+            $table->integer('appendice_id')->unsigned();
            /** $table->foreign('user_id')->references('id')->on('users');**/
             
         });

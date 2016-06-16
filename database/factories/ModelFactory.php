@@ -25,11 +25,12 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 
 $factory->define(App\Shift::class, function (Faker\Generator $faker) {
+   
     return [
         
         'user_id' => $faker->randomElement($array = array ('1','2')),
-        'date' => $faker->unixTime($max = 'now'),
-        'appendix_id' => "A5",
+        'date' => $faker->dateTimeThisMonth('now') ,
+        'appendice_id' => "5",
         'locked_flag' => false,
          'day_off_flag' => false,
 
