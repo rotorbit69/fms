@@ -17,6 +17,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->time('default_roster_start_time');
+            $table->time('default_roster_finish_time');
+            $table->string('active_appendix');
             $table->rememberToken();
             $table->timestamps();
         });

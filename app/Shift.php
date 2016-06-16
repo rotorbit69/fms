@@ -15,6 +15,10 @@ class Shift extends Model
     	return $this->belongsTo('App\User');
     }
 
+    public function appendix(){
+    	return $this->belongsTo('App\Appendix');
+    }
+
 
 		/** this function allow you to overide a seeded value before it is created
 		* in this case Duration is being set at '60'

@@ -27,4 +27,8 @@ class User extends Authenticatable
     public function shifts(){
         return $this->hasMany('App\Shift');
     }
+
+    public function flights(){
+        return $this->hasMany('App\Flight');
+    }
 }

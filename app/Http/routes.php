@@ -18,7 +18,8 @@ Route::get('/', function () {
 Route::get('shifts/{id}', function($id) {
 	$user = App\User::find($id);
 	$shifts = $user->shifts;
-    return view('shifts',compact('user' , 'shifts'));
+	$flights = $user->flights;
+    return view('shifts',compact('user' , 'shifts' , 'flights'));
 });
 
 Route::get('Briefs', function () {
