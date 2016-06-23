@@ -17,6 +17,12 @@ class AppendicesTableSeeder extends Seeder
         /** can set default values here : 'Duration'=>'600' **/
         ]);
 
+$appendice = App\Appendice::find(4);
+        $appendice->code = 'A4';
+        $appendice->title = 'Charter';
+        $appendice->normal_sleep_period_start_time = '220000';
+        $appendice->normal_sleep_period_finish_time = '050000';
+    $appendice->save();
 
      $appendice = App\Appendice::find(5);
         $appendice->code = 'A5';

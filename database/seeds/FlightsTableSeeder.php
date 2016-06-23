@@ -13,7 +13,7 @@ class FlightsTableSeeder extends Seeder
 
         DB::table('flights')->truncate();/** this truncates again incase you run it individually - not via the dataseeder */
 
-      factory('App\Flight',300)->create([
+      factory('App\Flight',400)->create([
         /** can set default values here : 'Duration'=>'600' **/
         ]);
 

@@ -4,9 +4,10 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /** note Appendices table is not truncated - as it holds static control values */
-
+    
 	protected $toTruncate = ['users' , 'shifts' , 'flights' ]; //* array of files to clear before seeding **/
+                    
+                    /** note Appendices table is not truncated - as it holds static control values */
 
     /**
      * Run the database seeds.

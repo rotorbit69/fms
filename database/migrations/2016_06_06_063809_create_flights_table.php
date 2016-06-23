@@ -19,8 +19,8 @@ class CreateFlightsTable extends Migration
             $table->dateTimeTz('date_time');
             $table->string('departure',40);
             $table->string('destination',40);
-            $table->integer('flight_time')->unsigned();
-            $table->integer('engine_time')->unsigned();
+            $table->decimal('flight_time',4,1)->unsigned();
+            $table->decimal('engine_time',4,1)->unsigned();
             $table->timestamps();
         });
     }

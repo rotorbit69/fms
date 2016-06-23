@@ -18,9 +18,9 @@ class CreateShiftsTable extends Migration
             $table->boolean('locked_flag')->default(0);
             $table->boolean('day_off_flag')->default(0);
 
-            $table->time('duty_start_time');
+            $table->datetime('duty_start_time');
             $table->integer('duty_duration')->unsigned();
-            $table->time('duty_finish_time');
+            $table->datetime('duty_finish_time');
             $table->integer('duty_maximum')->unsigned();
 
             $table->integer('odp_duration')->unsigned();
@@ -28,13 +28,13 @@ class CreateShiftsTable extends Migration
             $table->time('odp_finish_time');
             $table->boolean('odp_normal_sleep_period_flag')->default(0);
 
-            $table->integer('flight_time_total')->unsigned();
-            $table->integer('flight_time_max')->unsigned();
-            $table->integer('flight_time_remaining')->unsigned();
-            $table->integer('flight_time_168_hours')->unsigned();
-            $table->integer('flight_time_28_days')->unsigned();
-            $table->integer('flight_time_90_days')->unsigned();
-            $table->integer('flight_time_365_days')->unsigned();          
+            $table->decimal('flight_time_total' ,4 ,1);
+            $table->decimal('flight_time_max' ,4 ,1)->unsigned();
+            $table->decimal('flight_time_remaining' ,4 ,1)->unsigned();
+            $table->decimal('flight_time_168_hours' ,4 ,1)->unsigned();
+            $table->decimal('flight_time_28_days' ,4 ,1)->unsigned();
+            $table->decimal('flight_time_90_days' ,5 ,1)->unsigned();
+            $table->decimal('flight_time_365_days' ,6 ,1)->unsigned();          
              $table->timestamps();
             /** Foreign Keys **/
             $table->integer('user_id')->unsigned();

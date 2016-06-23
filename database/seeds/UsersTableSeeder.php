@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->truncate();/** this truncates again incase you run it individually - not via the dataseeder */
 
-      factory('App\User',30)->create([
+      factory('App\User',1)->create([
         /** can set default values here : 'Duration'=>'600' **/
         ]);
 

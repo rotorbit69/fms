@@ -28,15 +28,17 @@ $factory->define(App\Shift::class, function (Faker\Generator $faker) {
    
     return [
         
-        'user_id' => $faker->randomElement($array = array ('1','2')),
-        'date' => $faker->dateTimeThisMonth('now') ,
+        'user_id' => $faker->randomElement($array = array ('1')),
+        //'date' => Carbon\Carbon::now() ,
+        'date' => "", /** property set in ShiftsTableSeeder */
         'appendice_id' => "5",
         'locked_flag' => false,
-         'day_off_flag' => false,
+        'day_off_flag' => false,
+        'duty_finish_time' => "",/** property set in ShiftsTableSeeder */
+        'duty_start_time' => "",/** property set in ShiftsTableSeeder */
 
-        'duty_start_time' => "0" . $faker->randomElement($array = array ('6','7','8')) . $faker->randomElement($array = array ('00','30')) . "00",
         'duty_duration' => $faker->randomElement($array = array ('420','480','540','600')),
-        'duty_finish_time' => "0" . $faker->randomElement($array = array ('19','20','21')) . $faker->randomElement($array = array ('00','30')) . "00",
+       
         'duty_maximum' => $faker->randomElement($array = array ('540','600')),
 
         'odp_duration' => $faker->randomElement($array = array ('540','600')),
@@ -44,13 +46,13 @@ $factory->define(App\Shift::class, function (Faker\Generator $faker) {
         'odp_finish_time' => "0" . $faker->randomElement($array = array ('6','7','8')) . $faker->randomElement($array = array ('00','30')) . "00",
         'odp_normal_sleep_period_flag' => false,
 
-        'flight_time_total' => $faker->numberBetween(1,10),
-        'flight_time_max' => $faker->numberBetween(1,10),
-        'flight_time_remaining' => $faker->numberBetween(1,10),
-        'flight_time_168_hours' => $faker->numberBetween(1,50),
-        'flight_time_28_days' => $faker->numberBetween(1,150),
-        'flight_time_90_days' => $faker->numberBetween(1,400),
-        'flight_time_365_days' => $faker->numberBetween(1,1200),
+        'flight_time_total' => $faker->numberBetween(0,6) . "." . $faker->numberBetween(0,9),
+        'flight_time_max' => $faker->numberBetween(1,8),
+        'flight_time_remaining' => $faker->numberBetween(1,10). "." . $faker->numberBetween(0,9),
+        'flight_time_168_hours' => $faker->numberBetween(10,50). "." . $faker->numberBetween(0,9),
+        'flight_time_28_days' => $faker->numberBetween(100,150). "." . $faker->numberBetween(0,9),
+        'flight_time_90_days' => $faker->numberBetween(300,400). "." . $faker->numberBetween(0,9),
+        'flight_time_365_days' => $faker->numberBetween(1200,1400). "." . $faker->numberBetween(0,9),
 
 
 
@@ -63,8 +65,8 @@ $factory->define(App\Flight::class, function (Faker\Generator $faker) {
         'date_time' => $faker->unique()->dateTimeBetween($startDate = "-1 year", $endDate = "now")->format('Y-m-d'),
         'departure' => $faker->word,
         'destination' => $faker->word,
-        'flight_time' => $faker->numberBetween(50,140),
-        'engine_time' => $faker->numberBetween(50,140),
+        'flight_time' => $faker->numberBetween(1,5) . "." . $faker->numberBetween(0,9),
+        'engine_time' => $faker->numberBetween(1,5) . "." . $faker->numberBetween(0,9),
         'user_id' => $faker->numberBetween(1,2)
        
     ];
