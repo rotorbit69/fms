@@ -1,7 +1,11 @@
 <strong>Flight Time Totals</strong>
 					 	    
 					 	    <div>
-					 	    	
+					 	    	<div class="btn-group btn-group-xs">
+									<button type="button" class="btn btn-primary btn-group-xs">
+									Available: <strong>13.1</span></strong>
+									</button>
+								</div>
 								<div class="btn-group btn-group-xs">
 									<button type="button" class="btn btn-default btn-group-xs">
 									7Day Total: <strong><span style="color:red">56.1</span></strong>

@@ -17,6 +17,7 @@ class CreateShiftsTable extends Migration
             $table->date('date');
             $table->boolean('locked_flag')->default(0);
             $table->boolean('day_off_flag')->default(0);
+            $table->string('type');
 
             $table->datetime('duty_start_time');
             $table->integer('duty_duration')->unsigned();
@@ -26,7 +27,7 @@ class CreateShiftsTable extends Migration
             $table->integer('odp_duration')->unsigned();
             $table->time('odp_start_time');
             $table->time('odp_finish_time');
-            $table->boolean('odp_normal_sleep_period_flag')->default(0);
+            $table->boolean('odp_normal_sleep_period_flag')->default(false);
 
             $table->decimal('flight_time_total' ,4 ,1);
             $table->decimal('flight_time_max' ,4 ,1)->unsigned();

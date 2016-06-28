@@ -40,3 +40,5 @@ $appendice = App\Appendice::find(4);
 
     }
 }
+
+['code' => 'A4', 'title' => 'Charter', 'normal_sleep_period_start_time' => '220000', 'normal_sleep_period_finish_time' => '050000'],

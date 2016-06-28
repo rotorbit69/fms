@@ -36,6 +36,7 @@ $factory->define(App\Shift::class, function (Faker\Generator $faker) {
         'day_off_flag' => false,
         'duty_finish_time' => "",/** property set in ShiftsTableSeeder */
         'duty_start_time' => "",/** property set in ShiftsTableSeeder */
+        'type' => "",/** property set in ShiftsTableSeeder */
 
         'duty_duration' => $faker->randomElement($array = array ('420','480','540','600')),
        
