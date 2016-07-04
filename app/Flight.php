@@ -8,7 +8,7 @@ class Flight extends Model
 {
     //
     protected $fillable = [
-         'user_id',
+         'user_id, date_time',
     ];
 
     public function user(){

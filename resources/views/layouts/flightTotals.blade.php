@@ -3,32 +3,28 @@
 					 	    <div>
 					 	    	<div class="btn-group btn-group-xs">
 									<button type="button" class="btn btn-primary btn-group-xs">
-									Available: <strong>13.1</span></strong>
+									Available: <strong>{{ $shift->flight_time_max }}</span></strong>
 									</button>
 								</div>
 								<div class="btn-group btn-group-xs">
 									<button type="button" class="btn btn-default btn-group-xs">
-									7Day Total: <strong><span style="color:red">56.1</span></strong>
+									7Day Total: <strong>{{ $shift->flight_time_7_days }}</strong>
 									</button>
 								</div>
 								<div class="btn-group btn-group-xs">
 									<button type="button" class="btn btn-default btn-group-xs">
-									28Day: <strong>143.8</strong>
+									28Day: <strong>{{$shift->flight_time_28_days}}</strong>
 									</button>
 								</div>
 								<div class="btn-group btn-group-xs">
 									<button type="button" class="btn btn-default btn-group-xs">
-									90Day: <strong>467.3</strong>
+									90Day: <strong>{{$shift->flight_time_90_days}}</strong>
 									</button>
 								</div>
 								<div class="btn-group btn-group-xs">
 									<button type="button" class="btn btn-default btn-group-xs">
-									365Day: <strong>1211.5</strong>
+									365Day: <strong>{{ $shift->flight_time_365_days }}</strong>
 									</button>
 								</div>
-								<div class="btn-group btn-group-xs">
-									<button type="button" class="btn btn-default btn-group-xs">
-									Grand Total: <strong>{{ $grand_total }}</strong>
-									</button>
-								</div>
+								
 							</div>

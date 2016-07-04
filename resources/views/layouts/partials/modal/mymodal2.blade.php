@@ -28,39 +28,28 @@
                   <div id="collapseOne" class="panel-collapse collapse in">
                     <div class="box-body">
 
-
-					<div class="btn-group btn-group-xs" data-toggle="buttons">
-					 <p>Duty Start Time</p>
-					@for ($i = 1; $i < 25; $i++)
-					  <label class="btn btn-default" >
-					    <input type="radio" name="options" id="option" {{ $i }}'"' autocomplete="off"> {{ sprintf("%02d", $i ) }}
-					  </label>
-					@endfor
-					</div>
-					<div class="btn-group btn-group-xs" data-toggle="buttons">
-					<p>Duty Finish Time </p>
-					@for ($i = 1; $i < 25; $i++)
-					  <label class="btn btn-default">
-					    <input type="radio" name="options" id="option" {{ $i }}'"' autocomplete="off"> {{ sprintf("%02d", $i ) }}
-					  </label>
-
-					@endfor
-					 <p> Minutes 35</p>
+          <div class="row">
+          <div class="well">
+					
+					 <p>Duty Start Time - Time Picker</p>
+					
+					
+					<p>Duty Finish Time - Time Picker </p>
+					
 					
 					</div>
+					</div>
 					<div class="row">
 					<div class="well">
-					<p>Pre Postining Time: 1:14</p>
-					<p>(Total of any non flying duties in the preceeding 8 hrs before the FDP period.)</p>
+					<p>First Takeoff Time: 12:14</p>
+
+					<p>Last Landing Time : 15:23</p>
+
+          <p> Total Flight Time : 2.4 </p>
 					</div>
 					</div>
 
-					<div class="row">
-					<div class="well">
-					<p>Post Postining Time: 0:50</p>
-					<p>(Total of any non flying duties / transport after the flight period. Note : Any post positioning entered that exceeds the FDP is treated as a reasignment extension.)</p>
-					</div>
-					</div>
+					
 					
 					<!-- End of Button Bar for Time Selection -->
                     </div>

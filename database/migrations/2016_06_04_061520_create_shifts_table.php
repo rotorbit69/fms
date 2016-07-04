@@ -32,9 +32,10 @@ class CreateShiftsTable extends Migration
             $table->decimal('flight_time_total' ,4 ,1);
             $table->decimal('flight_time_max' ,4 ,1)->unsigned();
             $table->decimal('flight_time_remaining' ,4 ,1)->unsigned();
-            $table->decimal('flight_time_168_hours' ,4 ,1)->unsigned();
+            $table->decimal('flight_time_7_days' ,4 ,1)->unsigned();
             $table->decimal('flight_time_28_days' ,4 ,1)->unsigned();
             $table->decimal('flight_time_90_days' ,5 ,1)->unsigned();
+            $table->decimal('flight_time_168_hours' ,4 ,1)->unsigned();
             $table->decimal('flight_time_365_days' ,6 ,1)->unsigned();          
              $table->timestamps();
             /** Foreign Keys **/

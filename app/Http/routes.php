@@ -14,13 +14,18 @@
 Route::get('/', function () {
     return view('home');
 });
-
+/**
 Route::get('shifts/{id}', function($id) {
 	$user = App\User::find($id);
 	$shifts = $user->shifts;
 	$flights = $user->flights;
     return view('shifts',compact('user' , 'shifts' , 'flights'));
-});
+    });
+    **/
+
+  Route::get('shifts/{id}', 'ShiftController@allShifts');
+
+
 
 Route::get('Briefs', function () {
     return view('InstructorBriefs');
@@ -37,3 +42,10 @@ Route::get('user/{id}', function($id) {
     } 
     echo '</ul>';   
 });
+
+
+   define('TEN_HOUR_DUTY', 10);
+   define('ELEVEN_HOUR_DUTY', 11);
+   define('TWELVE_HOUR_DUTY', 12);
+
+

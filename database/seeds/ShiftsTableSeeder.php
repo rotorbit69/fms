@@ -21,7 +21,7 @@ class ShiftsTableSeeder extends Seeder
         $oddevent = 1;
         for ($x = 1; $x <= $numberOfRows; $x++) {    
             $shift = App\Shift::find($x);
-            $shift->date  =  Carbon\Carbon::now()->addDays($x); /** set sequential days from now */
+            $shift->date  =  Carbon\Carbon::now()->addDays($x-1); /** set sequential days from now */
             $shift->duty_start_time = $shift->date;
             $shift->duty_finish_time = $shift->date->addHours(8);
             if ($oddevent) {
