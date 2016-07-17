@@ -23,8 +23,27 @@ class Shift extends Model
     // define which attributes are mass assignable (for security)
     // we only want these 3 attributes able to be filled
     protected $fillable = [
-        'duty_start_time', 'duty_finish_time', 'duty_duration', 'user_id',
-        ];
+            'locked_flag', 
+            'day_off_flag', 
+            'type', 
+            'duty_start_time', 
+            'duty_duration', 
+            'duty_finish_time', 
+            'duty_maximum', 
+            'odp_duration', 
+            'odp_start_time', 
+            'odp_finish_time', 
+            'odp_normal_sleep_period_flag',
+            'flight_time_total',
+            'flight_time_max',  
+            'flight_time_remaining',  
+            'flight_time_7_days',  
+            'flight_time_28_days',  
+            'flight_time_90_days' ,
+            'flight_time_168_hours',  
+            'flight_time_365_days'
+            ];
+
 
     public function user(){
     	return $this->belongsTo('App\User');
@@ -61,6 +80,7 @@ class Shift extends Model
         //$shift->save();
     }
 
+    
     public function setFlightTotals($shift){
         // Day limits checked
         $hours_allowed_365 = Shift::MAX_FLIGHT_TIME_365_DAYS - $shift->flight_time_365_days;
@@ -96,7 +116,31 @@ class Shift extends Model
         //$shift->save();
     }
 
-   
+    public function buildOdp() {
+        $oldshifts = Shift::all();
+        $x = 0;
+       $cc = count($oldshifts);
+          for ($i = 0; $i < $cc; ++$i) {
+            $oldshift = $oldshifts[$i];
+     
+            if ($x >= 1){
+            $shift =  new Shift();
+            $shift->duty_finish_time = $oldshift->duty_start_time;
+            $shift->duty_start_time = $finish;
+            $shift->date = $date;
+            $shift->type = "OffDuty";
+            $shift->save();
+            if ($x == 15){
+                break;
+            }
+            }
+            $x += 1;
+            $finish = $oldshift->duty_finish_time;
+            $date = $oldshift->date;
+        }
+
+    } 
+
     
 
     // reset the finish time using a duration (11) hour extension to the start time

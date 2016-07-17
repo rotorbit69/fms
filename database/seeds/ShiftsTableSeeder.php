@@ -24,16 +24,16 @@ class ShiftsTableSeeder extends Seeder
             $shift->date  =  Carbon\Carbon::now()->addDays($x-1); /** set sequential days from now */
             $shift->duty_start_time = $shift->date;
             $shift->duty_finish_time = $shift->date->addHours(8);
-            if ($oddevent) {
+           // if ($oddevent) {
                 $oddevent = 0;
                 $shift->type = "Duty";
                 $ft = $shift->duty_finish_time;
-            } else {
-                $oddevent = 1;
-                $shift->type = "Off Duty";
-                $shift->duty_start_time = $ft;
+           // } else {
+               // $oddevent = 1;
+               // $shift->type = "Off Duty";
+               // $shift->duty_start_time = $ft;
 
-            }
+           // }
             
 
             $shift->save();

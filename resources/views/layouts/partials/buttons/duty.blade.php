@@ -10,6 +10,11 @@
 		<strong>{{$shift->type}}</strong>
 		 Period : {{$shift->duty_finish_time->diffinHours($shift->duty_start_time)}}:{{sprintf('%02d',fmod($shift->duty_finish_time->diffinMinutes($shift->duty_start_time),60))}}
 			<small class="label label-default"></i>{{ $shift->appendice->code }}</small>
+
+			
+		
+			
+
 			<i class="fa fa-car"></i>
 			<i class="fa fa-pie-chart"></i>
 			<i class="fa fa-gears"></i>
@@ -21,8 +26,8 @@
 		</h3>
 		    <div class="box-tools pull-right">
 		      
-			@if ($shift->locked_flag == true)
-		      <button type="button" class="btn btn-default btn-xs">Locked</button>
+			@if ($shift->locked_flag)
+		      <button type="button" class="btn btn-default btn-xs fa fa-lock"> Locked</button>
 		     @else
 		      <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#myModal2">Edit</button>
 			@endif

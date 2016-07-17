@@ -43,7 +43,7 @@ Route::get('user/{id}', function($id) {
     echo '</ul>';   
 });
 
-
+// Global System wide defaults 
    define('TEN_HOUR_DUTY', 10);
    define('ELEVEN_HOUR_DUTY', 11);
    define('TWELVE_HOUR_DUTY', 12);

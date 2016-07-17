@@ -44,6 +44,7 @@ class ShiftController extends Controller
 				$shift->setFlightTotals($shift); // set flight limits associated with Appendix
 
 				$shift->save();
+				$shift->buildOdp($shift);
 			}
 
 		$flights = $user->flights;
