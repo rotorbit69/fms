@@ -49,7 +49,7 @@
 											@include('layouts.partials.buttons.duty')
 										@else
 
-											
+											@include('layouts.partials.buttons.offduty')
 
 										@endif
 

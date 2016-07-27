@@ -116,28 +116,33 @@ class Shift extends Model
         //$shift->save();
     }
 
-    public function buildOdp() {
+    public function buildOdp($id) {
+        $firstFDP = true;
         $oldshifts = Shift::all();
-        $x = 0;
-       $cc = count($oldshifts);
-          for ($i = 0; $i < $cc; ++$i) {
-            $oldshift = $oldshifts[$i];
-     
-            if ($x >= 1){
-            $shift =  new Shift();
-            $shift->duty_finish_time = $oldshift->duty_start_time;
-            $shift->duty_start_time = $finish;
-            $shift->date = $date;
-            $shift->type = "OffDuty";
-            $shift->save();
-            if ($x == 15){
-                break;
-            }
-            }
-            $x += 1;
-            $finish = $oldshift->duty_finish_time;
-            $date = $oldshift->date;
-        }
+
+
+         foreach ($oldshifts as $oshift) {
+
+              if ( ! $firstFDP){
+                  $shift =  new Shift();
+                  $shift->type = "OffDuty";
+                  $shift->duty_finish_time = $oshift->duty_start_time;
+                  $shift->duty_start_time = $setStart;
+                  $shift->date = $oshift->date;
+                  $shift->user_id = $id;
+                  $shift->save();
+                  // now reset andhold finish date for next DOP
+                  $setStart = $oshift->duty_finish_time;
+
+
+              } else { // i.e. first FDP
+                  // Hold finish date for first ODP record
+                  $setStart = $oshift->duty_finish_time;
+                  $firstFDP = false;
+
+              }
+
+         }
 
     } 
 

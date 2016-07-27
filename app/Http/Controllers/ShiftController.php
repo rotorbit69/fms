@@ -12,8 +12,8 @@ use App\Flight;
 
 class ShiftController extends Controller
 {
-  
-/**
+
+    /**
      * Create a new Shift controller instance.
      *
      * @return void
@@ -23,35 +23,48 @@ class ShiftController extends Controller
         //
     }
 
-
-	/**
+    /**
      * Display all shifts for a id .
      *
      * @var string
      */
 
-	
+
+    public function allShifts($id)
+    {
+
+        $user = User::find($id);
+        $shifts = $user->shifts->where('type', "Duty");
+
+        foreach ( $shifts as $shift ) {
+            $shift->setFinishAndDuration($shift); //sets finish and duration time using the start time
+            $shift->getFlightTotals($shift); // determine flight totals from flight logbook
+            $shift->setFlightTotals($shift); // set flight limits associated with Appendix
+
+            $shift->save();
+        }
+        // Delete OffDuty Records from Table the Recreate
+        Shift::where('type', "OffDuty")->delete();
+
+        $shift->buildOdp($id);
 
 
-	public function allShifts($id) {
 
-		$user = User::find($id);
-		$shifts = $user->shifts;
+        $flights = $user->flights;
+        $shifts = $user->shifts->sortBy('duty_start_time');
 
-			foreach ($shifts as $shift){
-			 	$shift->setFinishAndDuration($shift); //sets finish and duration time using the start time
-				$shift->getFlightTotals($shift); // determine flight totals from flight logbook
-				$shift->setFlightTotals($shift); // set flight limits associated with Appendix
+            //->where('type', 'OffDuty');
+            //->where('type', "Duty")
 
-				$shift->save();
-				$shift->buildOdp($shift);
-			}
 
-		$flights = $user->flights;
-		//var_dump($year_total);
-	    return view('shifts',compact('user' , 'shifts' , 'flights'));
-	}
-   
-			
+        //$shifts = $shifts;
+
+           // ->all();
+
+
+
+        return view('shifts', compact('user', 'shifts', 'flights'));
+    }
+
 
 }
