@@ -139,7 +139,6 @@ class Shift extends Model
                   // Hold finish date for first ODP record
                   $setStart = $oshift->duty_finish_time;
                   $firstFDP = false;
-
               }
 
          }
