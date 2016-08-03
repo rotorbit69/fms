@@ -43,7 +43,7 @@ class ShiftController extends Controller
 
             $shift->save();
         }
-        // Delete OffDuty Records from Table the Recreate
+        // Delete OffDuty Records from Table ready for recreation
         Shift::where('type', "OffDuty")->delete();
 
         $shift->buildOdp($id);

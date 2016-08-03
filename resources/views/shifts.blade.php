@@ -16,13 +16,14 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-					 		Pilot :<strong> {{ $user->name }}</strong> : Duty Period
-					 	
+					 		Pilot :<strong> {{ $user->name }}</strong> : Duty Period ( xx/xx/xx - xx/xx/xx )
 					 	<hr>
-						
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-md-12">
+									<div class="box box-primary">
+
+										<div class="box-header with-border">
 									@foreach ($shifts as $shift)
 
 										@if ($shift->type == "Duty" )
@@ -53,7 +54,9 @@
 
 										@endif
 
-							 		@endforeach 
+							 		@endforeach
+										</div><!-- /.box-header -->
+									</div><!-- /.box-primary -->
 
 							</div>
 						</div>

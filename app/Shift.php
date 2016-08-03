@@ -154,11 +154,25 @@ class Shift extends Model
 
     // sets the duty duration (minutes) using the hour duration passed to it.
     public function setDuration($duration){
-    if ($duration > 0 ) {
-        $this->duty_duration =  $duration * 60;
+        if ( $duration > 0 ) {
+            $this->duty_duration = $duration * 60;
+        }
     }
-}
+    // display the initial date for the fdp display
+    public function displayDateFormat(){
+        return $this->duty_start_time->toFormattedDateString();
+    }
 
+    //display the start time formatted
+        public function displayStartTime(){
+           return substr($this->duty_start_time->toTimeString('H:i'),0,5);
+
+        }
+// display the finish time formatted
+    public function displayFinishTime(){
+        return substr($this->duty_finish_time->toTimeString('H:i'),0,5);
+
+    }
 
 
 }

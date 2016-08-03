@@ -27,6 +27,24 @@ body {
   overflow-y: auto;
 }
 /* Layout */
+
+
+
+/* vhk added css */
+.time-left {
+margin-left: 5px;
+}
+.progress-bar-pre {
+background-color: #C7D3DB;
+}
+.progress-bar-fdp {
+background-color: #4094D1;
+}
+.progress-bar-odp {
+background-color: #3D4670;
+}
+
+
 .wrapper {
   min-height: 100%;
   position: relative;
