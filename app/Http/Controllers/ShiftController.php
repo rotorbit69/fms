@@ -49,18 +49,16 @@ class ShiftController extends Controller
         $shift->buildOdp($id);
 
 
-
         $flights = $user->flights;
         $shifts = $user->shifts->sortBy('duty_start_time');
 
-            //->where('type', 'OffDuty');
-            //->where('type', "Duty")
+        //->where('type', 'OffDuty');
+        //->where('type', "Duty")
 
 
         //$shifts = $shifts;
 
-           // ->all();
-
+        // ->all();
 
 
         return view('shifts', compact('user', 'shifts', 'flights'));
